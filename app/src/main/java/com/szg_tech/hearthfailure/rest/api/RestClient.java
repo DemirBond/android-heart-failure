@@ -14,7 +14,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RestClient {
     //private static final String BASE_URL = "http://api.calchfrisk.net/";
-    private static final String BASE_URL = "http://198.71.134.8/api/";
+    private static final String BASE_URL = "http://pulmonaryhypertensionexpert.com/";
 
     //    private static final String BASE_URL = "http://heart.xpsign.com/api/";
     private static ApiService apiService;

@@ -20,8 +20,8 @@ public class DefaultApplock implements Application.ActivityLifecycleCallbacks {
 
     private Application mCurrentApp;
 
-    private long WAIT_TIME = 5*60*1000; //5Min
-//    private long WAIT_TIME = 10*1000; //For test 10 seconds
+    private long WAIT_TIME = 5 * 60 * 1000; //5Min
+    //    private long WAIT_TIME = 10*1000; //For test 10 seconds
     private Waiter waiter;
     private Date mLostFocusDate;
 
@@ -47,10 +47,10 @@ public class DefaultApplock implements Application.ActivityLifecycleCallbacks {
     @Override
     public void onActivityResumed(Activity activity) {
         // for UserInactivity
-        if(waiter!=null) {
+        if (waiter != null) {
             waiter.stopThread();
         }
-        waiter=new Waiter(activity,WAIT_TIME);
+        waiter = new Waiter(activity, WAIT_TIME);
         waiter.start();
 
         // for Screen lock
@@ -72,8 +72,8 @@ public class DefaultApplock implements Application.ActivityLifecycleCallbacks {
         if (mLostFocusDate == null) {
             isvalid = false;
         } else {
-            Log.d(TAG, "Timeout -&gt;"+timeSinceLocked());
-            if (timeSinceLocked() >= (WAIT_TIME/1000)) {
+            Log.d(TAG, "Timeout -&gt;" + timeSinceLocked());
+            if (timeSinceLocked() >= (WAIT_TIME / 1000)) {
                 isvalid = true;
             } else {
                 mLostFocusDate = null;
@@ -89,7 +89,7 @@ public class DefaultApplock implements Application.ActivityLifecycleCallbacks {
 
     @Override
     public void onActivityPaused(Activity activity) {
-        if(waiter!=null) {
+        if (waiter != null) {
             waiter.stopThread();
         }
         mLostFocusDate = new Date();
@@ -111,7 +111,7 @@ public class DefaultApplock implements Application.ActivityLifecycleCallbacks {
     }
 
     public void updateTouch() {
-        if(waiter!=null) {
+        if (waiter != null) {
             waiter.touch();
         }
         mLostFocusDate = new Date();

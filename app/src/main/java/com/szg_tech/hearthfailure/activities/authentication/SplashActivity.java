@@ -25,8 +25,6 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        Crashlytics.getInstance().crash();
-
         startAnimation();
         Thread timerThread = new Thread() {
             public void run() {

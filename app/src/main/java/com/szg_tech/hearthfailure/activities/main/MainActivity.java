@@ -27,7 +27,7 @@ public class MainActivity extends BaseAppCompatActivity implements MainActivityV
                 .commit();
         presenter.onCreate();
 
-        ApplockManager.getInstance().enableDefaultAppLockIfAvailable(getApplication());
+//        ApplockManager.getInstance().enableDefaultAppLockIfAvailable(getApplication());
     }
 
     @Override
