@@ -43,7 +43,7 @@ class HomePresenterImpl extends AbstractPresenter<HomeView> implements HomePrese
         if (activity instanceof AppCompatActivity) {
             ActionBar actionBar = ((AppCompatActivity) activity).getSupportActionBar();
             if (actionBar != null) {
-                actionBar.setTitle(R.string.heart_check);
+                actionBar.setTitle(R.string.heart_failure);
                 actionBar.setDisplayHomeAsUpEnabled(false);
                 int actionBarColor = ContextCompat.getColor(activity, R.color.colorPrimary);
                 actionBar.setBackgroundDrawable(new ColorDrawable(actionBarColor));

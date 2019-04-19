@@ -9,12 +9,12 @@ public class ApplockManager {
     private static ApplockManager instance;
     private DefaultApplock currentAppLocker;
 
-    public static ApplockManager getInstance() {
-        if (instance == null) {
-            instance = new ApplockManager();
-        }
-        return instance;
-    }
+//    public static ApplockManager getInstance() {
+//        if (instance == null) {
+//            instance = new ApplockManager();
+//        }
+//        return instance;
+//    }
 
     public void enableDefaultAppLockIfAvailable(Application currentApp) {
         if (currentAppLocker == null) {

@@ -9,13 +9,13 @@ import com.szg_tech.hearthfailure.core.HearthFailureApplication;
  */
 
 public class BaseAppCompatActivity extends AppCompatActivity {
-    public HearthFailureApplication getApp() {
-        return (HearthFailureApplication)getApplication();
-    }
+//    public HearthFailureApplication getApp() {
+//        return (HearthFailureApplication)getApplication();
+//    }
 
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
-        getApp().touch();
+//        getApp().touch();
     }
 }

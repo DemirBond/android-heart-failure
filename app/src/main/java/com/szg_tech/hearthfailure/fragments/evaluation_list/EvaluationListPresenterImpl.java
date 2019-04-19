@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.design.internal.SnackbarContentLayout;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.SnackbarContentLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
@@ -97,7 +97,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                             .addToBackStack(getSupportFragmentManager().getClass().getSimpleName() + heartSpecialistManagement.getName())
                             .commit();
                 }
-            }, v ->  {
+            }, v -> {
                 EvaluationDAO.getInstance().addToHashMap(ConfigurationParams.IS_PAH, false);
                 popBackStack();
             });
@@ -221,7 +221,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                     listRecyclerViewAdapter.saveAllValues();
                     if (activity instanceof EvaluationActivity) {
                         int pahPosition = PAHpositionInBackStack();
-                        if(pahPosition > 0) {
+                        if (pahPosition > 0) {
                             popBackStack(pahPosition);
                         } else {
                             ((EvaluationActivity) activity).createHomeScreen(false);
@@ -243,7 +243,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
 
 
     private void resetValuesForEvaluationItem() {
-        if(evaluationItems != null) {
+        if (evaluationItems != null) {
 
             for (int i = 0; i < evaluationItems.size(); i++) {
                 evaluationItems.get(i).setValue(valuesDump.get(i));
@@ -256,7 +256,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
         Activity activity = getActivity();
         if (activity != null) {
             RecyclerView recyclerView = getView().getRecyclerView();
-            if(recyclerView != null) {
+            if (recyclerView != null) {
                 listRecyclerViewAdapter = new ListRecyclerViewAdapter(getActivity(), evaluationItems, createValuesDump());
                 getView().getRecyclerView().setAdapter(listRecyclerViewAdapter);
             }
@@ -321,9 +321,9 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                     SectionEvaluationItem nextSectionEvaluationItem = nextSectionEvaluationItemArrayList.get(0);
                     if (ConfigurationParams.COMPUTE_EVALUATION.equals(nextSectionEvaluationItem.getId()) || ConfigurationParams.PAH_COMPUTE_EVALUATION.equals(nextSectionEvaluationItem.getId())) {
 
-                        if(EvaluationDAO.getInstance().isMinimumToSaveEntered()) {
+                        if (EvaluationDAO.getInstance().isMinimumToSaveEntered()) {
 
-                            if(ConfigurationParams.PAH_COMPUTE_EVALUATION.equals(nextSectionEvaluationItem.getId())) {
+                            if (ConfigurationParams.PAH_COMPUTE_EVALUATION.equals(nextSectionEvaluationItem.getId())) {
                                 EvaluationDAO.getInstance().addToHashMap(ConfigurationParams.IS_PAH, true);
                             } else {
                                 EvaluationDAO.getInstance().addToHashMap(ConfigurationParams.IS_PAH, false);

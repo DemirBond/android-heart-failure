@@ -15,6 +15,6 @@ public class HearthFailureApplication extends Application {
     }
 
     public void touch() {
-        ApplockManager.getInstance().updateTouch();
+//        ApplockManager.getInstance().updateTouch();
     }
 }

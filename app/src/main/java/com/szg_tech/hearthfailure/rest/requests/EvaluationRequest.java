@@ -19,10 +19,12 @@ public class EvaluationRequest {
     private int SBP;
     private int DBP;
     private boolean isPAH;
+    // For HeartFailure
+    private boolean forHF = true;
     private String inputs;
-    private boolean isSave=false;
+    private boolean isSave = false;
 
-    private int  evaluationId=0;
+    private int evaluationId = -1;
 
 
     public EvaluationRequest(String name, int age, int gender, int SBP, int DBP, boolean isPAH, String inputs) {
@@ -41,16 +43,15 @@ public class EvaluationRequest {
     }
 
     /**
-     *
      * This method create "inputs" value for server
      * It apply some arranged rules.
      * E.g. Boolean values only appears
      * E.g. Male mapped to 1 Female mapped to 2
-     *
-     *
+     * <p>
+     * <p>
      * Since we cannot enforce changes in server side
      * we need to live this these boilerplate codes.
-     *
+     * <p>
      * TODO add more checks or ask for improvement on server side
      */
     private void setVariablesFromMap(Map<String, Object> evaluationValueMap) {
@@ -61,15 +62,15 @@ public class EvaluationRequest {
         RadioButtonMapper.anginaIndexMapper().map(evaluationValueMap);
         DateInputMapper.mapOnSetOfHeartFailure(evaluationValueMap);
 
-        if(evaluationValueMap.containsKey(ConfigurationParams.MALE)) {
-            boolean isMale = (Boolean)evaluationValueMap.get(ConfigurationParams.MALE);
-            gender = isMale?1:2;
+        if (evaluationValueMap.containsKey(ConfigurationParams.MALE)) {
+            boolean isMale = (Boolean) evaluationValueMap.get(ConfigurationParams.MALE);
+            gender = isMale ? 1 : 2;
         } else {
             gender = 1;
         }
 
-        name = (String)evaluationValueMap.get(ConfigurationParams.NAME);
-        gender = (Integer)evaluationValueMap.get(ConfigurationParams.GENDER);
+        name = (String) evaluationValueMap.get(ConfigurationParams.NAME);
+        gender = (Integer) evaluationValueMap.get(ConfigurationParams.GENDER);
         SBP = getIntVal(evaluationValueMap.get(ConfigurationParams.SBP));
         DBP = getIntVal(evaluationValueMap.get(ConfigurationParams.DBP));
         DBP = getIntVal(evaluationValueMap.get(ConfigurationParams.DBP));
@@ -84,16 +85,17 @@ public class EvaluationRequest {
 
 
         StringBuilder builder = new StringBuilder();
-        for(Map.Entry<String, Object> entry: evaluationValueMap.entrySet()) {
+        for (Map.Entry<String, Object> entry : evaluationValueMap.entrySet()) {
             String key = entry.getKey();
             Object value = entry.getValue();
 
             //TODO why is this coming null, Check
-            if(key == null || key.length() < 2 || (key.length() > 3 && key.substring(0, 3).equalsIgnoreCase("sec"))) continue;
-            if(value == null) continue;
+            if (key == null || key.length() < 2 || (key.length() > 3 && key.substring(0, 3).equalsIgnoreCase("sec")))
+                continue;
+            if (value == null) continue;
 
-            if(key.length() > 3 && key.substring(0, 3).equalsIgnoreCase("chk")) {
-                if(value instanceof Boolean && ((Boolean)value) == true) {
+            if (key.length() > 3 && key.substring(0, 3).equalsIgnoreCase("chk")) {
+                if (value instanceof Boolean && ((Boolean) value) == true) {
                     builder.append(key);
                     builder.append('|');
                 } else {
@@ -104,17 +106,17 @@ public class EvaluationRequest {
                 builder.append('|');
             }
         }
-        if(builder.length() != 0 && builder.charAt(builder.length() - 1) == '|') {
+        if (builder.length() != 0 && builder.charAt(builder.length() - 1) == '|') {
             builder.deleteCharAt(builder.length() - 1);
         }
         inputs = builder.toString();
-        if(inputs.isEmpty()) inputs = "empty";
+        if (inputs.isEmpty()) inputs = "empty";
     }
 
 
     private int getIntVal(Object o) {
-        if(o != null && o instanceof Double) {
-            return ((Double)o).intValue();
+        if (o != null && o instanceof Double) {
+            return ((Double) o).intValue();
         } else {
             System.err.println("Evaluation Request - getIntVal [there is a serious problem with Data Storage]: " + o);
         }
@@ -122,8 +124,8 @@ public class EvaluationRequest {
     }
 
     private boolean getBoolVal(Object o) {
-        if(o != null && o instanceof Boolean) {
-            return ((Boolean)o);
+        if (o != null && o instanceof Boolean) {
+            return ((Boolean) o);
         } else {
             System.err.println("Evaluation Request - getIntVal [there is a serious problem with Data Storage]: " + o);
         }
@@ -132,7 +134,7 @@ public class EvaluationRequest {
 
     public Map<String, Object> toMap() {
         Map<String, Object> map = new HashMap<>();
-        if(isSave) {
+        if (isSave) {
             map.put("evaluationID", evaluationId);
             map.put("name", name);
         }
@@ -140,6 +142,7 @@ public class EvaluationRequest {
         map.put("gender", gender);
         map.put("SBP", SBP);
         map.put("DBP", DBP);
+        map.put("forHF", forHF);
         map.put("isPAH", isPAH);
         map.put("inputs", inputs);
         return map;

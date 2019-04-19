@@ -7,30 +7,32 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.crashlytics.android.Crashlytics;
 import com.szg_tech.hearthfailure.R;
+
+import java.util.Objects;
 
 
 /**
  * Created by superlight on 7/22/2017 AD.
  */
 
-public class SplashActivity extends AppCompatActivity{
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        //noinspection ConstantConditions
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         startAnimation();
-        Thread timerThread = new Thread(){
-            public void run(){
-                try{
+        Thread timerThread = new Thread() {
+            public void run() {
+                try {
                     sleep(3500);
-                }catch(InterruptedException e){
+                } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally{
+                } finally {
                     startActivity(new Intent(getApplicationContext(), AuthenticationActivity.class));
                     finish();
                 }
@@ -46,7 +48,7 @@ public class SplashActivity extends AppCompatActivity{
         finish();
     }
 
-    private void startAnimation(){
+    private void startAnimation() {
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
         anim.reset();
         ImageView ivLogo = (ImageView) findViewById(R.id.iv_logo);
