@@ -6,8 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.crashlytics.android.Crashlytics;
+import com.szg_tech.hearthfailure.BuildConfig;
 import com.szg_tech.hearthfailure.R;
 
 import java.util.Objects;
@@ -24,6 +25,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         Objects.requireNonNull(getSupportActionBar()).hide();
+        ((TextView) findViewById(R.id.txtVersion)).setText(BuildConfig.VERSION_NAME);
 
         startAnimation();
         Thread timerThread = new Thread() {

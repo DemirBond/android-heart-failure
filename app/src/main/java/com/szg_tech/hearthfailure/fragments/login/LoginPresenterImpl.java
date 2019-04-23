@@ -69,7 +69,7 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
             }
         }
 
-        ((AuthenticationActivity)activity).showMenu(false);
+        ((AuthenticationActivity) activity).showMenu(false);
 
     }
 
@@ -80,7 +80,7 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
 //            ((AuthenticationActivity)getActivity()).onLoginSucceed();
 //        }
 
-        if(!credentials.isEmpty()) {
+        if (!credentials.isEmpty()) {
             tryLogin(credentials.getEmail(), credentials.getPassword());
         }
     }
@@ -94,16 +94,20 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
                 .enqueue(new Callback<LoginResponse>() {
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        progressDialog.dismiss();
-                        if(response.isSuccessful()) {
-                            if(response.body().isSucceed()) {
+                        try {
+                            progressDialog.dismiss();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        if (response.isSuccessful()) {
+                            if (response.body().isSucceed()) {
                                 RestClientProvider.init(response.body().getAccessToken());
 
                                 Credentials newCredentials = new Credentials(email, password, response.body().getAccessTokenWithType(),
-                                        System.currentTimeMillis() + (response.body().getExpiresIn()*1000));
+                                        System.currentTimeMillis() + (response.body().getExpiresIn() * 1000));
 
                                 PreferenceHelper.putCredentials(activity, newCredentials);
-                                ((AuthenticationActivity)activity).onLoginSucceed();
+                                ((AuthenticationActivity) activity).onLoginSucceed();
 
                             }
                         } else {
@@ -115,7 +119,11 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
                     public void onFailure(Call<LoginResponse> call, Throwable t) {
 
                         //TODO There is a serious problem, handle with this
-                        progressDialog.dismiss();
+                        try {
+                            progressDialog.dismiss();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         showSnackbarBottomButtonLoginError(activity);
                         t.printStackTrace();
                     }
@@ -145,19 +153,20 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
 
         @Override
         public void onBindViewHolder(LoginPresenterImpl.RecyclerViewAdapter.ViewHolder holder, int position) {
-                holder.loginButton.setOnClickListener(new LoginOnClickLister(holder));
-                holder.linkSignup.setOnClickListener(v -> {
-                    getSupportFragmentManager().beginTransaction()
-                            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-                            .replace(R.id.container, new RegisterFragment())
-                            .addToBackStack(RegisterFragment.class.getSimpleName())
-                            .commit();
-                });
+            holder.loginButton.setOnClickListener(new LoginOnClickLister(holder));
+            holder.linkSignup.setOnClickListener(v -> {
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                        .replace(R.id.container, new RegisterFragment())
+                        .addToBackStack(RegisterFragment.class.getSimpleName())
+                        .commit();
+            });
         }
 
         class LoginOnClickLister implements View.OnClickListener {
 
             final ViewHolder holder;
+
             public LoginOnClickLister(ViewHolder holder) {
                 this.holder = holder;
             }
@@ -167,8 +176,7 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
                 System.out.println("I am in LoginFragment on click");
                 String email = holder.email.getText().toString();
                 String password = holder.password.getText().toString();
-                if(validate())
-                {
+                if (validate()) {
                     tryLogin(email, password);
                 }
             }
