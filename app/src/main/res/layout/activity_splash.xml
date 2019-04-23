@@ -31,12 +31,12 @@
         android:layout_weight="0.5"/>
 
     <TextView
+        android:id="@+id/txtVersion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:textSize="15sp"
         android:textColor="#000000"
-        android:text="Version 1.18 (Eighteenth revision)"
         android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

@@ -2,6 +2,7 @@ package com.szg_tech.hearthfailure.activities.evaluation;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -65,12 +66,14 @@ class EvaluationActivityPresenterImpl extends AbstractPresenter<EvaluationActivi
                         .add(R.id.container, evaluationListFragment)
                         .commit();
             } else {
-                if (getSupportFragmentManager().getBackStackEntryCount() > 0
-                        && !getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName().equals(EvaluationActivityPresenterImpl.class.getSimpleName())) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, evaluationListFragment)
-                            .addToBackStack(EvaluationActivityPresenterImpl.class.getSimpleName())
-                            .commit();
+                FragmentManager manager = getSupportFragmentManager();
+                if (manager.getBackStackEntryCount() > 0
+                        && !manager.getBackStackEntryAt(manager.getBackStackEntryCount() - 1).getName().equals(EvaluationActivityPresenterImpl.class.getSimpleName())) {
+                    manager.popBackStackImmediate(0, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+//                    getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.container, evaluationListFragment)
+//                            .addToBackStack(EvaluationActivityPresenterImpl.class.getSimpleName())
+//                            .commit();
                 }
             }
         }
