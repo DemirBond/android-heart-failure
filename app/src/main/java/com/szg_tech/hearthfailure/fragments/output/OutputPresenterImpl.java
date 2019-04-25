@@ -86,7 +86,7 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
         System.out.println(request.toMap());
         Map map = request.toMap();
         map.put("forHF",true);
-        RestClientProvider.get().getApi().computeEvaluation(map).enqueue(new Callback<EvaluationResponse>() {
+        RestClientProvider.get(activity.getApplicationContext()).getApi().computeEvaluation(map).enqueue(new Callback<EvaluationResponse>() {
             @Override
             public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
 
@@ -135,7 +135,7 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
                 evaluationValueMap.put("forHF", true);
                 final EvaluationRequest request = new EvaluationRequest(evaluationValueMap, true);
 
-                RestClientProvider.get().getApi().computeEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
+                RestClientProvider.get(activity.getApplicationContext()).getApi().computeEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
                     @Override
                     public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
                         //
@@ -146,7 +146,7 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
                     }
                 });
 
-                RestClientProvider.get().getApi().saveEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
+                RestClientProvider.get(activity.getApplicationContext()).getApi().saveEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
                     @Override
                     public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
                         //HERE
