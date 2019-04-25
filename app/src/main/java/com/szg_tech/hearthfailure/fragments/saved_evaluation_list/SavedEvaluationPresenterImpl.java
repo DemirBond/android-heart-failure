@@ -59,7 +59,7 @@ public class SavedEvaluationPresenterImpl extends AbstractPresenter<SavedEvaluat
 
         ProgressDialog progressDialog = ProgressModalManager.createAndShowRetrieveSavedEvaluationProgressDialog(getActivity());
 
-        RestClientProvider.get().getApi().retrieveSavedEvaluations().enqueue(new Callback<SavedEvaluationSummaryResponse>() {
+        RestClientProvider.get(getActivity().getApplicationContext()).getApi().retrieveSavedEvaluations().enqueue(new Callback<SavedEvaluationSummaryResponse>() {
             @Override
             public void onResponse(Call<SavedEvaluationSummaryResponse> call, Response<SavedEvaluationSummaryResponse> response) {
                 progressDialog.dismiss();
@@ -159,7 +159,7 @@ public class SavedEvaluationPresenterImpl extends AbstractPresenter<SavedEvaluat
 
                     ProgressDialog progressDialog = ProgressModalManager.createAndShowRetrieveEvaluationProgressDialog(activity);
 
-                    RestClientProvider.get().getApi().retrieveEvaluationByID(savedEvaluationItem.getId()).enqueue(new Callback<SavedEvaluationResponse>() {
+                    RestClientProvider.get(activity.getApplicationContext()).getApi().retrieveEvaluationByID(savedEvaluationItem.getId()).enqueue(new Callback<SavedEvaluationResponse>() {
                         @Override
                         public void onResponse(Call<SavedEvaluationResponse> call, Response<SavedEvaluationResponse> response) {
                             progressDialog.dismiss();
