@@ -7,7 +7,6 @@ import com.szg_tech.hearthfailure.core.ConfigurationParams;
 import com.szg_tech.hearthfailure.entities.EvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.BoldEvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.BooleanEvaluationItem;
-import com.szg_tech.hearthfailure.entities.evaluation_item_elements.EmptyCellEvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.NumericalEvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.RadioButtonGroupEvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.SectionCheckboxEvaluationItem;
@@ -137,16 +136,14 @@ public class HeartFailure extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.MYOCARDITIS, "Myocarditis", false));
 
 
-
                     }
                 }, SectionEvaluationItem.SectionElementState.OPENED));
-
 
 
                 add(new SectionEvaluationItem(context, ConfigurationParams.CLINICAL_PRESENTATION, context.getString(R.string.clinical_presentation), false, new ArrayList<EvaluationItem>() {
                     {
                         add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, context.getString(R.string.lvef), context.getString(R.string.value), 1, 80, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.RASAT, "RA O2 SAT","Value", 50, 100, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.RASAT, "RA O2 SAT", "Value", 50, 100, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.VO2SAT, context.getString(R.string.cv_svo2_sat), context.getString(R.string.value), 30, 100, false, true));
 
                         add(new BooleanEvaluationItem(context, ConfigurationParams.HEPATO, "Neck veins not sssesable", false));
@@ -185,34 +182,14 @@ public class HeartFailure extends SectionEvaluationItem {
                                 add(new NumericalEvaluationItem(context, ConfigurationParams.VO_MAX_KG, context.getString(R.string.vo_max_kg), context.getString(R.string.value), 6, 40, false, true));
                             }
                         }));
-                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, " NYHA Class 1 ", "radio_section", false, false, new ArrayList<EvaluationItem>() {
-
-                        }) {
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS, "NYHA Class", false, new ArrayList<EvaluationItem>() {
                             {
-                                setBackgroundHighlighted(true);
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, "NYHA Class 1", "section_nyha_class", false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, "NYHA Class 2", "section_nyha_class", false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, "NYHA Class 3", "section_nyha_class", false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, "NYHA Class 4", "section_nyha_class", false, false));
                             }
-                        });
-                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, " NYHA Class 2", "radio_section", false, false, new ArrayList<EvaluationItem>() {
-
-                        }) {
-                            {
-                                setBackgroundHighlighted(true);
-                            }
-                        });
-                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, " NYHA Class 3", "radio_section", false, false, new ArrayList<EvaluationItem>() {
-
-                        }) {
-                            {
-                                setBackgroundHighlighted(true);
-                            }
-                        });
-                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, " NYHA Class 4 ", "radio_section", false, false, new ArrayList<EvaluationItem>() {
-
-                        }) {
-                            {
-                                setBackgroundHighlighted(true);
-                            }
-                        });
+                        }));
                         //add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, context.getString(R.string.nyha_ccvs_class_1), false));
                         //add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, context.getString(R.string.nyha_ccvs_class_2), false));
                         //add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, context.getString(R.string.nyha_ccvs_class_3), false));
@@ -280,9 +257,9 @@ public class HeartFailure extends SectionEvaluationItem {
                             }
                         }));
 
-                             add(new BooleanEvaluationItem(context, ConfigurationParams.CURRENT_VKA_THERAPY, "Current VKA therapy", false));
-                             add(new BooleanEvaluationItem(context, ConfigurationParams.CCB_OTHER_VASOLIDATORS, "CCB", false));
-                             add(new BooleanEvaluationItem(context, ConfigurationParams.VASODILATOR, "Vasodilator", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CURRENT_VKA_THERAPY, "Current VKA therapy", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CCB_OTHER_VASOLIDATORS, "CCB", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.VASODILATOR, "Vasodilator", false));
                     }
                 }, SectionEvaluationItem.SectionElementState.OPENED));
 
@@ -312,7 +289,7 @@ public class HeartFailure extends SectionEvaluationItem {
                             }
                         });
                         //add(new BooleanEvaluationItem(context, ConfigurationParams.DAY1, context.getString(R.string.day1), false));
-                       //add(new BooleanEvaluationItem(context, ConfigurationParams.DAY2, context.getString(R.string.day2), false));
+                        //add(new BooleanEvaluationItem(context, ConfigurationParams.DAY2, context.getString(R.string.day2), false));
                         //add(new BooleanEvaluationItem(context, ConfigurationParams.DAY3, context.getString(R.string.day3), false));
                         //add(new BooleanEvaluationItem(context, ConfigurationParams.DAY4, context.getString(R.string.pre_discharge_or_discharge_day), false));
                     }
@@ -386,9 +363,9 @@ public class HeartFailure extends SectionEvaluationItem {
                 add(new SectionEvaluationItem(context, ConfigurationParams.DISCHARGE_THERAPEUTICS, context.getString(R.string.discharge_therapeutics), false, new ArrayList<EvaluationItem>() {
                     {
                         add(new NumericalEvaluationItem(context, ConfigurationParams.DCDIURETIC, "Discharge daily diuretic dose, furosemide equivalent", "Value", 10, 240, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.PRE6MWT, "Predischarge 6MW distance", "Value",10, 800, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.PRE6MWT, "Predischarge 6MW distance", "Value", 10, 800, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.PREBNP, "Predischarge BNP pg/ml", "Value", 10, 80000, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.VO2, "VO2 max.kg","Value", 1, 30, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.VO2, "VO2 max.kg", "Value", 1, 30, false, true));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CARA, "B blocker intolerance", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.COM, "Non cardiac co-morbidities", false));
                     }

@@ -294,10 +294,14 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.FREQUENT_HOSPITAL_ADMISSIONS, context.getString(R.string.frequent_hospital_admissions), false));
                                             }
                                         }));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, "NYHA/CCVS Class 1", false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, context.getString(R.string.nyha_ccvs_class_2), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, context.getString(R.string.nyha_ccvs_class_3), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, context.getString(R.string.nyha_ccvs_class_4), false));
+                                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS, "NYHA/CCVS Class", false, new ArrayList<EvaluationItem>() {
+                                            {
+                                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, "NYHA/CCVS Class 1", "section_nyha_class", false, false));
+                                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, "NYHA/CCVS Class 2", "section_nyha_class", false, false));
+                                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, "NYHA/CCVS Class 3", "section_nyha_class", false, false));
+                                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, "NYHA/CCVS Class 4", "section_nyha_class", false, false));
+                                            }
+                                        }));
                                     }
                                 }, SectionElementState.OPENED));
 

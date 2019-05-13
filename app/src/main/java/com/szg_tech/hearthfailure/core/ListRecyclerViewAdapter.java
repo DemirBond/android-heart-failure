@@ -650,7 +650,10 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                     }
                 });
             } else if (evaluationItem instanceof SectionCheckboxEvaluationItem) {
-                ((SectionCheckboxCell) holder.view).getCheckBox().setOnCheckedChangeListener((buttonView, isChecked) -> ((SectionCheckboxEvaluationItem) evaluationItem).setChecked(isChecked));
+                ((SectionCheckboxCell) holder.view).getCheckBox().setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    ((SectionCheckboxEvaluationItem) evaluationItem).setChecked(isChecked);
+                    markChildAsChecked(evaluationItem, isChecked);
+                });
                 ((SectionCheckboxCell) holder.view).setChecked(((SectionCheckboxEvaluationItem) evaluationItem).isChecked());
                 ((SectionCheckboxCell) holder.view).setOnClickListener(v -> {
                     if (isScreenValid()) {
@@ -690,6 +693,26 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                     cal.set(Calendar.YEAR, year);
                     evaluationItem.setValue(cal.getTimeInMillis());
                 });
+            }
+        }
+    }
+
+    private void markChildAsChecked(EvaluationItem parent, boolean isChecked) {
+        if (parent != null && !isChecked) {
+            if (parent instanceof SectionCheckboxEvaluationItem
+                    || parent instanceof RadioButtonGroupEvaluationItem) {
+                List<EvaluationItem> children = parent.getEvaluationItemList();
+                for (EvaluationItem item : children) {
+                    if (item instanceof BooleanEvaluationItem && ((BooleanEvaluationItem) item).isChecked()) {
+                        ((BooleanEvaluationItem) item).setChecked(false);
+                    } else if (item instanceof SectionCheckboxEvaluationItem) {
+                        ((SectionCheckboxEvaluationItem) item).setChecked(false);
+                        markChildAsChecked(item, false);
+                    } else if (item instanceof RadioButtonGroupEvaluationItem) {
+                        ((RadioButtonGroupEvaluationItem) item).setChecked(false);
+                        markChildAsChecked(item, false);
+                    }
+                }
             }
         }
     }
