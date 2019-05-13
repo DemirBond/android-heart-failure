@@ -7,6 +7,7 @@ import com.szg_tech.hearthfailure.core.ConfigurationParams;
 import com.szg_tech.hearthfailure.entities.EvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.BooleanEvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.NumericalEvaluationItem;
+import com.szg_tech.hearthfailure.entities.evaluation_item_elements.RadioButtonGroupEvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.SectionCheckboxEvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.SectionEvaluationItem;
 
@@ -60,12 +61,12 @@ public class CoroaryHeartDisease extends SectionEvaluationItem {
                         }));
                     }
                 }));
-                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.STABLE_ANG, context.getString(R.string.stable_ang), false, new ArrayList<EvaluationItem>() {
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.STABLE_ANG, "STABLE ANG", false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, "NYHACCVS Class 1", false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, "NYHACCVS Class 2", false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, context.getString(R.string.nyha_ccvs_class_3), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, context.getString(R.string.nyha_ccvs_class_4), false));
+                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, "NYHACCVS Class 1", "section_nyha_class", false, false));
+                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, "NYHACCVS Class 2", "section_nyha_class", false, false));
+                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, "NYHACCVS Class 3", "section_nyha_class", false, false));
+                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, "NYHACCVS Class 4", "section_nyha_class", false, false));
                     }
                 }));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.LM, context.getString(R.string.lm), false));

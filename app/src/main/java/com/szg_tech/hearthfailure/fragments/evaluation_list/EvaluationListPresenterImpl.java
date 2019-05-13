@@ -234,7 +234,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
             case R.id.reset_field:
                 //TODO Implement reset fields
 //                if (listRecyclerViewAdapter.isScreenValid()) {
-//                    resetValuesForEvaluationItem();
+                resetValuesForEvaluationItem();
 //                }
                 break;
         }
