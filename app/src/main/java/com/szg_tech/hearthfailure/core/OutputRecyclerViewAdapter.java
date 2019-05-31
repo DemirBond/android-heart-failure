@@ -54,6 +54,7 @@ public class OutputRecyclerViewAdapter extends RecyclerView.Adapter<OutputRecycl
                 return new OutputRecyclerViewAdapter.ViewHolder(boldTextCell);
             case 1:
                 TextCell textCell = new TextCell(activity);
+                textCell.showDot();
                 textCell.setLayoutParams(layoutParams);
                 return new OutputRecyclerViewAdapter.ViewHolder(textCell);
             case 2:
