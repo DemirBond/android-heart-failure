@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.Html;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.szg_tech.hearthfailure.R;
@@ -45,6 +46,10 @@ public class TextCell extends LinearLayout implements CellItem {
 
     private void setUpView() {
 
+    }
+
+    public void showDot() {
+        findViewById(R.id.txtDot).setVisibility(View.VISIBLE);
     }
 
     @Override
