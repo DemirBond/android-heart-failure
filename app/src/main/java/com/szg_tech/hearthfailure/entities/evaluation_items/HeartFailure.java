@@ -180,6 +180,7 @@ public class HeartFailure extends SectionEvaluationItem {
                                     }
                                 });
                                 add(new NumericalEvaluationItem(context, ConfigurationParams.VO_MAX_KG, context.getString(R.string.vo_max_kg), context.getString(R.string.value), 6, 40, false, true));
+                                add(new NumericalEvaluationItem(context, ConfigurationParams.SIX_MW_DISTANCE, context.getString(R.string.six_mw_distance), context.getString(R.string.value), 50, 600, false, true));
                             }
                         }));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS, "NYHA Class", false, new ArrayList<EvaluationItem>() {

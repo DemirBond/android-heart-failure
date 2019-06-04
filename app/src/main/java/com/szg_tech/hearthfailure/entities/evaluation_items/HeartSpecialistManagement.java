@@ -28,112 +28,112 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
     private ArrayList<EvaluationItem> createEvaluationItemElementsList() {
         return new ArrayList<EvaluationItem>() {
             {
-                add(new SectionEvaluationItem(context, ConfigurationParams.BIO_PAH_MAIN, " 6MWT, CPET ", false, new ArrayList<EvaluationItem>() {
-                    {
-                        //TODO make expanding control
-                        add(new StringEvaluationItem(context, ConfigurationParams.NAME, context.getString(R.string.name), context.getString(R.string.name_hint), true, null));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.AGE, context.getString(R.string.age), context.getString(R.string.age_hint), 20, 100, true, true));
-                        add(new SectionPlaceholderEvaluationItem(context, ConfigurationParams.GENDER, context.getString(R.string.gender), context.getString(R.string.male), false,
-                                new ArrayList<EvaluationItem>() {
-                                    {
-                                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.MALE, context.getString(R.string.male), ConfigurationParams.GENDER, false, true));
-                                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.FEMALE, context.getString(R.string.female), ConfigurationParams.GENDER, false, false));
-                                    }
-                                }));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.BMI, "BMI", "Enter BMI", 100, 220, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.WEIGHT, context.getString(R.string.weight), context.getString(R.string.weight_hint), 40, 400, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.HEART_RATE, context.getString(R.string.heart_rate), context.getString(R.string.heart_rate_hint), 30, 300, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.SBP, context.getString(R.string.sbp), context.getString(R.string.sbp_hint), 60, 300, true, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.DBP, context.getString(R.string.dbp), context.getString(R.string.dbp_hint), 30, 160, true, true));
-
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.ORTHOSTATIC_SYMPTOMPS, context.getString(R.string.orthostatic_symptomps), false));
-
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.SIX_MW_DISTANCE, context.getString(R.string.six_mw_distance), context.getString(R.string.value), 50, 600, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.MAX_VO_MG_KG_MIN, context.getString(R.string.max_vo_mg_kg_min), context.getString(R.string.value), 6, 40, false, true));
-
-                    }
-                }, SectionElementState.OPENED));
-                add(new SectionEvaluationItem(context, ConfigurationParams.PAH, "PAH clinics", false, new ArrayList<EvaluationItem>() {
-                    {
-                        add(new TabEvaluationItem(context, "heart_rate_tab", "tab", new ArrayList<SectionEvaluationItem>() {
-                            {
-                                add(new SectionEvaluationItem(context, "tab_pg1", context.getString(R.string.pah), false, new ArrayList<EvaluationItem>() {
-                                    {
-
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.IDIOPATHIC, context.getString(R.string.idiopathic), false));
-                                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.CONGENITAL, context.getString(R.string.congenital), false, new ArrayList<EvaluationItem>() {
-                                            {
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.ASD_LESS_2CM, context.getString(R.string.asd_less_2cm), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.VSD_LESS_1CM, context.getString(R.string.vsd_less_1cm), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.POST_CORRECTIVE_SURGERY, context.getString(R.string.post_corrective_surgery), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.EISENMENGER, context.getString(R.string.eisenmenger), false));
-                                            }
-                                        }));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.SCLERODERMA, context.getString(R.string.scleroderma), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.SLE, context.getString(R.string.sle), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.HIV, context.getString(R.string.hiv), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.PORTAL_HYPERTENSION, context.getString(R.string.portal_hypertension), false));
-                                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.RESPIRATORY_DISEASE_HYPOXIA, context.getString(R.string.respiratory_disease_hypoxia), false, new ArrayList<EvaluationItem>() {
-                                            {
-                                                add(new NumericalEvaluationItem(context, ConfigurationParams.AHI, context.getString(R.string.ahi), context.getString(R.string.value), 0, 100, false, true));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.OSA, context.getString(R.string.osa), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.IPF_ILD, context.getString(R.string.ipf_ild), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.COPD, context.getString(R.string.copd), false));
-                                            }
-                                        }));
-
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.PVOD_PCH, context.getString(R.string.pvod_pch), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.SPLENECTOMY_SC, context.getString(R.string.splenectomy_sc), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.FAMILIAL, context.getString(R.string.familial), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CTEP, context.getString(R.string.ctep), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DRUGS_TOXINS, context.getString(R.string.drugs_toxins), false));
-                                    }
-                                }));
-                                add(new SectionEvaluationItem(context, "tab_pg2", context.getString(R.string.pah), false, new ArrayList<EvaluationItem>() {
-                                    {
-                                        {
-                                            add(new NumericalEvaluationItem(context, ConfigurationParams.DLCO, "DLCO,%", "Value",1, 6, false));
-                                            add(new NumericalEvaluationItem(context, ConfigurationParams.FEV1_LT, "FEV1,lt","Value", 16, 144, false, true));
-                                            add(new NumericalEvaluationItem(context, ConfigurationParams.FEV1_PERCENT, "FEV1,%","Value", 1, 6, false));
-                                            add(new NumericalEvaluationItem(context, ConfigurationParams.IC_TLC, "IC/TLC","Value", 1, 6, false));
-                                        }
-                                    }
-                                }));
-
-                                add(new SectionEvaluationItem(context, "tab_pg3", context.getString(R.string.pah), false, new ArrayList<EvaluationItem>() {
-                                    {
-                                        {
-                                    add(new NumericalEvaluationItem(context, ConfigurationParams.TR_JET_VELOCITY, "TRJ m/s","Value", 1, 6, false));
-                                    add(new NumericalEvaluationItem(context, ConfigurationParams.EXERCISE_RSVP, "Exercise RVSPmmHg","Value", 16, 144, false, true));
-
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_LV_TD_DONE, "Check if LV TD done", false));
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_RVOT_PW_DONE, "Check if RVOT flow interrogated", false));
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_TAPSE_DONE, "Check if TAPSE done", false));
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_LESS_8, "E/E <8 ", false));
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.SHORT_PAAT, "Short PAAT", false));
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.TAPSE_LESS_2, "TAPSE < 2 ", false));
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_8_16, "E/E' 8 to 16", false));
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.MIDSYS_NOTCH, "Midsystolic notch", false));
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.ENLARGED_RA, "Enlarged RA", false));
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_MORE_16, "E/E' > 16", false));
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.ENLARGED_RV, "Enlarged RV", false));
-                                    add(new BooleanEvaluationItem(context, ConfigurationParams.PERICARDIAL_EFFUSION, "Pericardial effusion", false));
-                                        }
-                                    }
-
-                                }));
-                            }
-                        }));
-                    }
-
-                }, SectionElementState.OPENED));
+//                add(new SectionEvaluationItem(context, ConfigurationParams.BIO_PAH_MAIN, " 6MWT, CPET ", false, new ArrayList<EvaluationItem>() {
+//                    {
+//                        //TODO make expanding control
+//                        add(new StringEvaluationItem(context, ConfigurationParams.NAME, context.getString(R.string.name), context.getString(R.string.name_hint), true, null));
+//                        add(new NumericalEvaluationItem(context, ConfigurationParams.AGE, context.getString(R.string.age), context.getString(R.string.age_hint), 20, 100, true, true));
+//                        add(new SectionPlaceholderEvaluationItem(context, ConfigurationParams.GENDER, context.getString(R.string.gender), context.getString(R.string.male), false,
+//                                new ArrayList<EvaluationItem>() {
+//                                    {
+//                                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.MALE, context.getString(R.string.male), ConfigurationParams.GENDER, false, true));
+//                                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.FEMALE, context.getString(R.string.female), ConfigurationParams.GENDER, false, false));
+//                                    }
+//                                }));
+//                        add(new NumericalEvaluationItem(context, ConfigurationParams.BMI, "BMI", "Enter BMI", 100, 220, false, true));
+//                        add(new NumericalEvaluationItem(context, ConfigurationParams.WEIGHT, context.getString(R.string.weight), context.getString(R.string.weight_hint), 40, 400, false, true));
+//                        add(new NumericalEvaluationItem(context, ConfigurationParams.HEART_RATE, context.getString(R.string.heart_rate), context.getString(R.string.heart_rate_hint), 30, 300, false, true));
+//                        add(new NumericalEvaluationItem(context, ConfigurationParams.SBP, context.getString(R.string.sbp), context.getString(R.string.sbp_hint), 60, 300, true, true));
+//                        add(new NumericalEvaluationItem(context, ConfigurationParams.DBP, context.getString(R.string.dbp), context.getString(R.string.dbp_hint), 30, 160, true, true));
+//
+//                        add(new BooleanEvaluationItem(context, ConfigurationParams.ORTHOSTATIC_SYMPTOMPS, context.getString(R.string.orthostatic_symptomps), false));
+//
+//                        add(new NumericalEvaluationItem(context, ConfigurationParams.SIX_MW_DISTANCE, context.getString(R.string.six_mw_distance), context.getString(R.string.value), 50, 600, false, true));
+//                        add(new NumericalEvaluationItem(context, ConfigurationParams.MAX_VO_MG_KG_MIN, context.getString(R.string.max_vo_mg_kg_min), context.getString(R.string.value), 6, 40, false, true));
+//
+//                    }
+//                }, SectionElementState.OPENED));
+//                add(new SectionEvaluationItem(context, ConfigurationParams.PAH, "PAH clinics", false, new ArrayList<EvaluationItem>() {
+//                    {
+//                        add(new TabEvaluationItem(context, "heart_rate_tab", "tab", new ArrayList<SectionEvaluationItem>() {
+//                            {
+//                                add(new SectionEvaluationItem(context, "tab_pg1", context.getString(R.string.pah), false, new ArrayList<EvaluationItem>() {
+//                                    {
+//
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.IDIOPATHIC, context.getString(R.string.idiopathic), false));
+//                                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.CONGENITAL, context.getString(R.string.congenital), false, new ArrayList<EvaluationItem>() {
+//                                            {
+//                                                add(new BooleanEvaluationItem(context, ConfigurationParams.ASD_LESS_2CM, context.getString(R.string.asd_less_2cm), false));
+//                                                add(new BooleanEvaluationItem(context, ConfigurationParams.VSD_LESS_1CM, context.getString(R.string.vsd_less_1cm), false));
+//                                                add(new BooleanEvaluationItem(context, ConfigurationParams.POST_CORRECTIVE_SURGERY, context.getString(R.string.post_corrective_surgery), false));
+//                                                add(new BooleanEvaluationItem(context, ConfigurationParams.EISENMENGER, context.getString(R.string.eisenmenger), false));
+//                                            }
+//                                        }));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.SCLERODERMA, context.getString(R.string.scleroderma), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.SLE, context.getString(R.string.sle), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.HIV, context.getString(R.string.hiv), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.PORTAL_HYPERTENSION, context.getString(R.string.portal_hypertension), false));
+//                                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.RESPIRATORY_DISEASE_HYPOXIA, context.getString(R.string.respiratory_disease_hypoxia), false, new ArrayList<EvaluationItem>() {
+//                                            {
+//                                                add(new NumericalEvaluationItem(context, ConfigurationParams.AHI, context.getString(R.string.ahi), context.getString(R.string.value), 0, 100, false, true));
+//                                                add(new BooleanEvaluationItem(context, ConfigurationParams.OSA, context.getString(R.string.osa), false));
+//                                                add(new BooleanEvaluationItem(context, ConfigurationParams.IPF_ILD, context.getString(R.string.ipf_ild), false));
+//                                                add(new BooleanEvaluationItem(context, ConfigurationParams.COPD, context.getString(R.string.copd), false));
+//                                            }
+//                                        }));
+//
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.PVOD_PCH, context.getString(R.string.pvod_pch), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.SPLENECTOMY_SC, context.getString(R.string.splenectomy_sc), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.FAMILIAL, context.getString(R.string.familial), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CTEP, context.getString(R.string.ctep), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DRUGS_TOXINS, context.getString(R.string.drugs_toxins), false));
+//                                    }
+//                                }));
+//                                add(new SectionEvaluationItem(context, "tab_pg2", context.getString(R.string.pah), false, new ArrayList<EvaluationItem>() {
+//                                    {
+//                                        {
+//                                            add(new NumericalEvaluationItem(context, ConfigurationParams.DLCO, "DLCO,%", "Value",1, 6, false));
+//                                            add(new NumericalEvaluationItem(context, ConfigurationParams.FEV1_LT, "FEV1,lt","Value", 16, 144, false, true));
+//                                            add(new NumericalEvaluationItem(context, ConfigurationParams.FEV1_PERCENT, "FEV1,%","Value", 1, 6, false));
+//                                            add(new NumericalEvaluationItem(context, ConfigurationParams.IC_TLC, "IC/TLC","Value", 1, 6, false));
+//                                        }
+//                                    }
+//                                }));
+//
+//                                add(new SectionEvaluationItem(context, "tab_pg3", context.getString(R.string.pah), false, new ArrayList<EvaluationItem>() {
+//                                    {
+//                                        {
+//                                    add(new NumericalEvaluationItem(context, ConfigurationParams.TR_JET_VELOCITY, "TRJ m/s","Value", 1, 6, false));
+//                                    add(new NumericalEvaluationItem(context, ConfigurationParams.EXERCISE_RSVP, "Exercise RVSPmmHg","Value", 16, 144, false, true));
+//
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_LV_TD_DONE, "Check if LV TD done", false));
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_RVOT_PW_DONE, "Check if RVOT flow interrogated", false));
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_TAPSE_DONE, "Check if TAPSE done", false));
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_LESS_8, "E/E <8 ", false));
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.SHORT_PAAT, "Short PAAT", false));
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.TAPSE_LESS_2, "TAPSE < 2 ", false));
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_8_16, "E/E' 8 to 16", false));
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.MIDSYS_NOTCH, "Midsystolic notch", false));
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.ENLARGED_RA, "Enlarged RA", false));
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_MORE_16, "E/E' > 16", false));
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.ENLARGED_RV, "Enlarged RV", false));
+//                                    add(new BooleanEvaluationItem(context, ConfigurationParams.PERICARDIAL_EFFUSION, "Pericardial effusion", false));
+//                                        }
+//                                    }
+//
+//                                }));
+//                            }
+//                        }));
+//                    }
+//
+//                }, SectionElementState.OPENED));
 
                 add(new SectionEvaluationItem(context, ConfigurationParams.VALVULAR, context.getString(R.string.valvular), false, new ArrayList<EvaluationItem>() {
                     {
                         add(new SectionEvaluationItem(context, ConfigurationParams.VALVULAR, context.getString(R.string.valvular), false, new ArrayList<EvaluationItem>() {
                             {
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF_PAH, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.NEW_ONSET_ATRIAL_FIBRILATION, context.getString(R.string.new_onset_atrial_fibrilation), false));
+                                add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF_PAH, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.PREGNANCY, context.getString(R.string.pregnancy), false));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.AORTIC_STENOSIS, context.getString(R.string.aortic_stenosis), false, new ArrayList<EvaluationItem>() {
                                     {
@@ -228,23 +228,23 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                     {
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.ADVANCED_HEART_FAILURE, context.getString(R.string.heart_failure), false, new ArrayList<EvaluationItem>() {
                             {
-                                add(new SectionEvaluationItem(context, ConfigurationParams.HEART_FAILURE_DURATION, context.getString(R.string.heart_failure_duration), false, new ArrayList<EvaluationItem>() {
-                                    {
-                                        add(new NumericalEvaluationItem(context, ConfigurationParams.HEART_FAILURE_DURATION_WEEK, context.getString(R.string.heart_failure_duration_week), context.getString(R.string.value), 0, 100, false));
-
-                                        //TODO make control
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY1, context.getString(R.string.day1), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY2, context.getString(R.string.day2), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY3, context.getString(R.string.day3), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY4, context.getString(R.string.day4), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY5, context.getString(R.string.day5), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY6, context.getString(R.string.day6), false));
-
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.HFPLVF, context.getString(R.string.hfplvf), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.FAILED_OUTPUT_RX, context.getString(R.string.failed_output_rx), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CRT_ICD, context.getString(R.string.crt_icd), false));
-                                    }
-                                }, SectionElementState.OPENED));
+//                                add(new SectionEvaluationItem(context, ConfigurationParams.HEART_FAILURE_DURATION, context.getString(R.string.heart_failure_duration), false, new ArrayList<EvaluationItem>() {
+//                                    {
+//                                        add(new NumericalEvaluationItem(context, ConfigurationParams.HEART_FAILURE_DURATION_WEEK, context.getString(R.string.heart_failure_duration_week), context.getString(R.string.value), 0, 100, false));
+//
+//                                        //TODO make control
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY1, context.getString(R.string.day1), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY2, context.getString(R.string.day2), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY3, context.getString(R.string.day3), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY4, context.getString(R.string.day4), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY5, context.getString(R.string.day5), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY6, context.getString(R.string.day6), false));
+//
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.HFPLVF, context.getString(R.string.hfplvf), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.FAILED_OUTPUT_RX, context.getString(R.string.failed_output_rx), false));
+//                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CRT_ICD, context.getString(R.string.crt_icd), false));
+//                                    }
+//                                }, SectionElementState.OPENED));
                                 add(new SectionEvaluationItem(context, ConfigurationParams.CLINICS, context.getString(R.string.clinics), false, new ArrayList<EvaluationItem>() {
                                     {
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
@@ -405,36 +405,36 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
 
 
                         }));
-                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.ECHOCARDIOGRAPHY, "Echocardiography", false, new ArrayList<EvaluationItem>() {
-                            {
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.E_A_LESS_05_AND_DT_MORE_280MS, "Grade 1 DD", false));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.GRADE_MORE_2_DIASTOLIC_DYSFUNCTION, "Grade 2 DD", false));
-
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.LV_LATEREAL_ANNULUS_E_E, "Lateral annulus E/E'","Value", 1, 30, false, true));
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, "LVEF"," Value", 10, 80, false, true));
-                            }
-                        }));
-                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.EKG, "EKG", false, new ArrayList<EvaluationItem>() {
-                            {
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.QRS_DURATION, "QRS duration","Value", 10, 300, false, true));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.LBBB, "LBBB", false));
-                            }
-                        }));
-                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.LABORATORIES, "Laboratories", false, new ArrayList<EvaluationItem>() {
-                            {
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.GFR_ML_MIN, "GFR","Value", 0, 120, false, true));
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.CREATININE_MG_DL, "Creatinine","Value", 0.4, 20, false));
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.NA, "Na meq.l","Value", 99, 170, false, true));
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.K_MEQ_L, "K meq.l","Value", 2, 9, false));
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.PLATELETS_K_ML, "Platelet K","Value", 1000, 1000000, false, true));
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.ALBUMIN_G_DL, "Albumin gm.dl","Value", 0.9, 5, false));
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.INR_PAH, "INR","Value", 0.8, 100, false));
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.AST_U_ML, "AST U.ml","Value", 10, 100000, false, true));
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.BUN_U_DL, "BUN","Value", 6, 200, false, true));
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.HEMATOCRIT, "Hematocrit","Value", 9, 75, false, true));
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.BNP_PG_ML, "BNP","Value", 10, 100000, false, true));
-                            }
-                        }));
+//                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.ECHOCARDIOGRAPHY, "Echocardiography", false, new ArrayList<EvaluationItem>() {
+//                            {
+//                                add(new BooleanEvaluationItem(context, ConfigurationParams.E_A_LESS_05_AND_DT_MORE_280MS, "Grade 1 DD", false));
+//                                add(new BooleanEvaluationItem(context, ConfigurationParams.GRADE_MORE_2_DIASTOLIC_DYSFUNCTION, "Grade 2 DD", false));
+//
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.LV_LATEREAL_ANNULUS_E_E, "Lateral annulus E/E'","Value", 1, 30, false, true));
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, "LVEF"," Value", 10, 80, false, true));
+//                            }
+//                        }));
+//                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.EKG, "EKG", false, new ArrayList<EvaluationItem>() {
+//                            {
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.QRS_DURATION, "QRS duration","Value", 10, 300, false, true));
+//                                add(new BooleanEvaluationItem(context, ConfigurationParams.LBBB, "LBBB", false));
+//                            }
+//                        }));
+//                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.LABORATORIES, "Laboratories", false, new ArrayList<EvaluationItem>() {
+//                            {
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.GFR_ML_MIN, "GFR","Value", 0, 120, false, true));
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.CREATININE_MG_DL, "Creatinine","Value", 0.4, 20, false));
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.NA, "Na meq.l","Value", 99, 170, false, true));
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.K_MEQ_L, "K meq.l","Value", 2, 9, false));
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.PLATELETS_K_ML, "Platelet K","Value", 1000, 1000000, false, true));
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.ALBUMIN_G_DL, "Albumin gm.dl","Value", 0.9, 5, false));
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.INR_PAH, "INR","Value", 0.8, 100, false));
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.AST_U_ML, "AST U.ml","Value", 10, 100000, false, true));
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.BUN_U_DL, "BUN","Value", 6, 200, false, true));
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.HEMATOCRIT, "Hematocrit","Value", 9, 75, false, true));
+//                                add(new NumericalEvaluationItem(context, ConfigurationParams.BNP_PG_ML, "BNP","Value", 10, 100000, false, true));
+//                            }
+//                        }));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ON_MAX_TOLERATED_B_BLOCKER, "Maximum tolerated b blocker", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ON_MAX_TOLERATED_ACE_IARB, "Maximum tolerated ACE I/ ARB", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CHRONIC_INOTROPE_DEPENDENCE, "Chronic inotrope dependence", false));
