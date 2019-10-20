@@ -29,8 +29,8 @@ class MajorCVRisk extends SectionEvaluationItem {
                     {
                         //add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.TYPE_2_DM, context.getString(R.string.type_2_dm), false, new ArrayList<EvaluationItem>() {
                             //{
-                                //add(new BooleanEvaluationItem(context, ConfigurationParams.DMNP, "Diabetic Nephropathy", false));
-                                //add(new BooleanEvaluationItem(context, ConfigurationParams.DMCKD, "Diabetic CKD", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.DM, "Type 2 DM", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.DM1, "Type 1 DM", false));
                                 //add(new BooleanEvaluationItem(context, ConfigurationParams.DMOTHER,"Other kidney complications", false));
                                 //add(new BooleanEvaluationItem(context, ConfigurationParams.DMMONO, "Diabetic mononeuropathy", false));
                                 //add(new BooleanEvaluationItem(context, ConfigurationParams.DMPOLY, "Diabetic polyneuropathy", false));
@@ -87,9 +87,9 @@ class MajorCVRisk extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CHEST_BACK_PAIN_DYSPNEA, context.getString(R.string.chest_back_pain_dyspnea), false));
                     }
                 }));
-                add(new BooleanEvaluationItem(context, ConfigurationParams.TOBACCO_USE, context.getString(R.string.tobacco_use), false));
-                add(new BooleanEvaluationItem(context, ConfigurationParams.FAMILY_HISTORY, context.getString(R.string.family_history), false));
-                add(new BooleanEvaluationItem(context, ConfigurationParams.CKD, context.getString(R.string.ckd), false));
+                //add(new BooleanEvaluationItem(context, ConfigurationParams.TOBACCO_USE, context.getString(R.string.tobacco_use), false));
+                //add(new BooleanEvaluationItem(context, ConfigurationParams.FAMILY_HISTORY, context.getString(R.string.family_history), false));
+                //add(new BooleanEvaluationItem(context, ConfigurationParams.CKD, context.getString(R.string.ckd), false));
             }
         };
     }

@@ -16,6 +16,8 @@ public class ConfigurationParams {
     public static final String HEART_RATE = "txtHR";
     public static final String SBP = "txtSBP";
     public static final String DBP = "txtDBP";
+    public static final String RESP_RATE = "txtresprate";
+    public static final String TEMPARATURE = "txttemp";
     public static final String IS_PAH = "isPAH";
     public static final String ORTHOSTATIC_SBP = "txtOrthostaticSBP";
     public static final String ORTHOSTATIC_SYMPTOMPS = "chkSymptomatic";
@@ -243,6 +245,8 @@ public class ConfigurationParams {
     public static final String CYANOSIS = "chkcyanosis";
     public static final String LOW_URINE = "chklowurine";
     public static final String EDEMA = "chkedema";
+    public static final String CARPAL = "chkcarpal";
+    public static final String NEUROPATHY = "chkneuropathy";
     public static final String DIFFERENCE_IN_SBP = "txtDiffInSBP";
     public static final String CURRENT_THERAPIES = "seccurrent_therapies";
     public static final String EVALUATION = "secevaluation";
@@ -331,10 +335,13 @@ public class ConfigurationParams {
     public static final String ASCVD_RISK = "txtASCVD";
     public static final String OTHERS = "secothers";
     public static final String HBA1C = "txtHBA1C";
+    public static final String FLCA = "txtFLCA";
+    public static final String FERRITIN = "txtferritin";
+    public static final String TSAT = "txtTSAT";
     public static final String CRP_MG_L = "txtCRP";
     public static final String NT_PROBNP_PG_ML = "txtproBNP";
     public static final String BNP_PG_ML = "txtBNP";
-    public static final String ALBUMINURIA_MG_GM_OR_MG_24HR = "txtMICRO";
+    public static final String ALBUMINURIA_MG_GM_OR_MG_24HR = "txtMicro";
     public static final String FOUR_ANTIARRYTHMIC = "chkIVAA";
     public static final String CONTINOUS_IVAA = "chkAAcon";
     public static final String BOLUS_IVAA = "chkAAbolus";
@@ -484,16 +491,19 @@ public class ConfigurationParams {
     public static final String IC_TLC = "txtICTLC";
     public static final String RWMA = "chkRWMA";
     public static final String ENLARGED_LA_OR_LVH = "chkEnlargedLA";
-    public static final String E_A_LESS_05_AND_DT_MORE_280MS = "chkLVeccenticity";
-    public static final String GRADE_MORE_2_DIASTOLIC_DYSFUNCTION = "chkEgreater16";
     public static final String LVHE = "chkLVHE";
+    public static final String E_A_LESS_05_AND_DT_MORE_280MS = "chkEA";
+    public static final String GRADE_MORE_2_DIASTOLIC_DYSFUNCTION = "chkMPI";
+    public static final String LV_ECCENTICITY= "chkLVeccenticity";
     public static final String MITRAL_E_VARIATION = "chkmitralE";
+
     public static final String HEPATIC_VEIN_EXP_DIASTOLIC_REVERSAL = "chkhepatic";
     public static final String ENLARGED_RA = "chkEnlargedRA";
     public static final String ENLARGED_RV = "chkEnlargedRV";
     public static final String ESMALLER8 = "chkEsmaller8";
     public static final String E8TO16 = "chkE8to16";
-    public static final String LV_LATEREAL_ANNULUS_E_E = "txtMP";
+    public static final String MP = "txtMP";
+    public static final String EF = "txtEF";
     public static final String LVED_ECHO = "txtLVED";
     public static final String TRJ_VELOCITY = "txtTRJ";
     public static final String CHEST_X_RAY = "chkchestxray";
@@ -740,6 +750,7 @@ public class ConfigurationParams {
     public static final String SAH = "chkSAH";
     public static final String AF_SVT = "chkAF";
     public static final String DM = "chkDM";
+    public static final String DM1 = "chkDM1";
     public static final String TR_JET_VELOCITY = "txtTRJ";
     public static final String EXERCISE_RSVP = "txtERVSP";
     public static final String ADVANCED_ECHOCARDIOGRAPHY = "chkAD";
@@ -750,7 +761,7 @@ public class ConfigurationParams {
     public static final String SHORT_PAAT = "chkTei";
     public static final String TAPSE_LESS_2 = "chkTapse";
     public static final String E_E_8_16 = "chkE8to16";
-    public static final String MIDSYS_NOTCH = "chkMidsystolic";
+    public static final String MIDSYS_NOTCH = "chkMidsystolicn";
     public static final String E_E_MORE_16 = "chkEgreater16";
     public static final String NEW_ONSET_ATRIAL_FIBRILATION = "chknewonsetAF";
     public static final String AORTIC_STENOSIS = "chkAorticStenosis";

@@ -89,8 +89,8 @@ public class HeartFailure extends SectionEvaluationItem {
 
                         add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA_AT_REST, "Dyspnea at rest", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.S_P_ICD, "S/P AICD", false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.S_P_BiV_PPM, "S/P BIVPACER", false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.S_P_PPM_RV_LEAD_ONLY, "S/P PPM RV LEAD ONLY", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.S_P_BiV_PPM, "S/P CRT", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.S_P_PPM_RV_LEAD_ONLY, "S/P PPM RV lead only", false));
                     }
                 }, SectionEvaluationItem.SectionElementState.OPENED));
                 add(new SectionEvaluationItem(context, ConfigurationParams.ETIOLOGY, context.getString(R.string.etiology), false, new ArrayList<EvaluationItem>() {
@@ -148,7 +148,7 @@ public class HeartFailure extends SectionEvaluationItem {
 
                         add(new BooleanEvaluationItem(context, ConfigurationParams.HEPATO, "Neck veins not sssesable", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.JUGULAR_VENOUS_DISTENTION, context.getString(R.string.jugular_venous_distention), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.EDEMA, context.getString(R.string.edema_ascites), false));
+
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LEFT_SIDED_S3, "Left sided S3 gallop", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LEFT_SIDED_S4, "Left sided S4 gallop", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.NEW_RALES, context.getString(R.string.new_rales), false));
@@ -156,18 +156,27 @@ public class HeartFailure extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.HJR, "Hepatojugular reflux", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ASCITES, "Ascites", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LOW_URINE, context.getString(R.string.low_urine_output), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.ANY_CNS_SYMPTOMS, context.getString(R.string.any_cns_symptoms), false));
+
                         add(new BooleanEvaluationItem(context, ConfigurationParams.COLD_CLAMMY_EXTERMITIES, context.getString(R.string.cold_clammy_extremities), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CYANOSIS, context.getString(R.string.cyanosis), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.EDEMA, context.getString(R.string.edema_ascites), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CARPAL, "Carpal Tunnel ", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.ANY_CNS_SYMPTOMS, context.getString(R.string.any_cns_symptoms), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.NEUROPATHY, "Peripheral Neuropathy", false));
                     }
                 }, SectionEvaluationItem.SectionElementState.OPENED));
 
-                add(new SectionEvaluationItem(context, ConfigurationParams.AHA_STAGE, context.getString(R.string.aha_stage), false, new ArrayList<EvaluationItem>() {
+                add(new SectionEvaluationItem(context, ConfigurationParams.AHA_STAGE, "NYHA class/ AHA stage", false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.AT_HIGH_RISK, context.getString(R.string.at_high_risk), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.NO_SIGNS_OF_HF, context.getString(R.string.no_signs_of_hf), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.SYMPTOMS_OF_HF, context.getString(R.string.symptoms_of_hf), false));
 
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS, "NYHA Class", false, new ArrayList<EvaluationItem>() {
+                            {
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, "NYHA Class 1", "section_nyha_class", false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, "NYHA Class 2", "section_nyha_class", false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, "NYHA Class 3", "section_nyha_class", false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, "NYHA Class 4", "section_nyha_class", false, false));
+                            }
+                        }));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.ADVANCED_HF, context.getString(R.string.advanced_hf), false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new BoldEvaluationItem(context, ConfigurationParams.CALCULATE_HFSS, context.getString(R.string.calculate_hfss), false));
@@ -183,14 +192,12 @@ public class HeartFailure extends SectionEvaluationItem {
                                 add(new NumericalEvaluationItem(context, ConfigurationParams.SIX_MW_DISTANCE, context.getString(R.string.six_mw_distance), context.getString(R.string.value), 50, 600, false, true));
                             }
                         }));
-                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS, "NYHA Class", false, new ArrayList<EvaluationItem>() {
-                            {
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, "NYHA Class 1", "section_nyha_class", false, false));
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, "NYHA Class 2", "section_nyha_class", false, false));
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, "NYHA Class 3", "section_nyha_class", false, false));
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, "NYHA Class 4", "section_nyha_class", false, false));
-                            }
-                        }));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.AT_HIGH_RISK, context.getString(R.string.at_high_risk), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.NO_SIGNS_OF_HF, context.getString(R.string.no_signs_of_hf), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.SYMPTOMS_OF_HF, context.getString(R.string.symptoms_of_hf), false));
+
+
+
                         //add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, context.getString(R.string.nyha_ccvs_class_1), false));
                         //add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, context.getString(R.string.nyha_ccvs_class_2), false));
                         //add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, context.getString(R.string.nyha_ccvs_class_3), false));
