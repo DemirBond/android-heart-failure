@@ -3,7 +3,7 @@ package com.szg_tech.hearthfailure.core.views.modal;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;

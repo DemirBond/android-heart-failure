@@ -2,8 +2,8 @@ package com.szg_tech.hearthfailure.core.views.cell;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 

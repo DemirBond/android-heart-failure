@@ -3,13 +3,12 @@ package com.szg_tech.hearthfailure.activities.authentication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.szg_tech.hearthfailure.R;
-import com.szg_tech.hearthfailure.activities.BaseAppCompatActivity;
 import com.szg_tech.hearthfailure.activities.main.MainActivity;
 import com.szg_tech.hearthfailure.fragments.login.LoginFragment;
 

@@ -1,8 +1,6 @@
 package com.szg_tech.hearthfailure.activities;
 
-import android.support.v7.app.AppCompatActivity;
-
-import com.szg_tech.hearthfailure.core.HearthFailureApplication;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Simple Design on 3/14/2018.
