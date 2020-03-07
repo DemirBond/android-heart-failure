@@ -6,6 +6,7 @@ import com.szg_tech.hearthfailure.R;
 import com.szg_tech.hearthfailure.core.ConfigurationParams;
 import com.szg_tech.hearthfailure.entities.EvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.BooleanEvaluationItem;
+import com.szg_tech.hearthfailure.entities.evaluation_item_elements.NumericalDependantEvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.NumericalEvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.RadioButtonGroupEvaluationItem;
 import com.szg_tech.hearthfailure.entities.evaluation_item_elements.SectionEvaluationItem;
@@ -36,7 +37,51 @@ class Bio extends SectionEvaluationItem {
                             }
                         }));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.SBP, context.getString(R.string.sbp), context.getString(R.string.sbp_hint), 60, 300, true, true));
+
+                add(new NumericalDependantEvaluationItem(
+                        context,
+                        ConfigurationParams.SBP_OPTIONAL_LOWER,
+                        context.getString(R.string.expanded_optional_headline),
+                        context.getString(R.string.expanded_optional_hint),
+                        90,
+                        90,
+                        false,
+                        true,
+                        ConfigurationParams.SBP,
+                        90,
+                        90
+                ));
+
+                add(new NumericalDependantEvaluationItem(
+                        context,
+                        ConfigurationParams.SBP_OPTIONAL_UPPER,
+                        context.getString(R.string.expanded_optional_headline),
+                        context.getString(R.string.expanded_optional_hint),
+                        130,
+                        130,
+                        false,
+                        true,
+                        ConfigurationParams.SBP,
+                        130,
+                        130
+                ));
+
+
                 add(new NumericalEvaluationItem(context, ConfigurationParams.DBP, context.getString(R.string.dbp), context.getString(R.string.dbp_hint), 30, 160, true, true));
+
+                add(new NumericalDependantEvaluationItem(
+                        context,
+                        ConfigurationParams.DBP_OPTIONAL,
+                        context.getString(R.string.expanded_optional_headline),
+                        context.getString(R.string.expanded_optional_hint),
+                        80,
+                        80,
+                        false,
+                        true,
+                        ConfigurationParams.DBP,
+                        80,
+                        80
+                ));
 
                 add(new NumericalEvaluationItem(context, ConfigurationParams.HEART_RATE, context.getString(R.string.heart_rate), context.getString(R.string.heart_rate_hint), 30, 300, false, true));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.RESP_RATE, "Respiratory Rate", "", 10, 50, false, true));

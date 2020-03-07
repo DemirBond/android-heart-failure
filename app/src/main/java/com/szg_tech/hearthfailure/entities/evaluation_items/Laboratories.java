@@ -26,11 +26,11 @@ class Laboratories extends SectionEvaluationItem {
             {
                 add(new BoldEvaluationItem(context, ConfigurationParams.CHEM_BASIC, context.getString(R.string.chem_basic), false));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.NA_MEQ_L, context.getString(R.string.na_meq_l), context.getString(R.string.value), 99, 170, false, true));
-                add(new NumericalDependantEvaluationItem(context, ConfigurationParams.URINE_NA_MEQ_L, context.getString(R.string.urine_na_meq_l), context.getString(R.string.value), 1, 200, false, true,
+                add(new NumericalDependantEvaluationItem(context, ConfigurationParams.URINE_NA_MEQ_L, context.getString(R.string.urine_na_meq_l), context.getString(R.string.expanded_optional_hint), 1, 200, false, true,
                         ConfigurationParams.NA_MEQ_L, 99, 130));
-                add(new NumericalDependantEvaluationItem(context, ConfigurationParams.SERUM_OSMOLALITY, context.getString(R.string.serum_osmolality), context.getString(R.string.value), 200, 400, false, true,
+                add(new NumericalDependantEvaluationItem(context, ConfigurationParams.SERUM_OSMOLALITY, context.getString(R.string.serum_osmolality), context.getString(R.string.expanded_optional_hint), 200, 400, false, true,
                         ConfigurationParams.NA_MEQ_L, 99, 130));
-                add(new NumericalDependantEvaluationItem(context, ConfigurationParams.URINE_OSMOLALITY, context.getString(R.string.urine_osmolality), context.getString(R.string.value), 200, 1000, false, true,
+                add(new NumericalDependantEvaluationItem(context, ConfigurationParams.URINE_OSMOLALITY, context.getString(R.string.urine_osmolality), context.getString(R.string.expanded_optional_hint), 200, 1000, false, true,
                         ConfigurationParams.NA_MEQ_L, 99, 130));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.K_MEQ_L, context.getString(R.string.k_meq_l), context.getString(R.string.value), 2, 9, false));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.HCO3, "HCO3 meq/lt","Value", 0, 50, false, true));

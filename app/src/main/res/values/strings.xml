@@ -948,4 +948,9 @@
     <string name="submit">Submit</string>
     <string name="contact_admin">Cannot Sign In? - Contact Administrator</string>
     <string name="snackbar_bottom_button_auth_error">Code verification is not successful.</string>
+
+    <string name="expanded_optional_hint">Value is %s than %.0f Please give additional details.</string>
+    <string name="less">less</string>
+    <string name="greater">greater</string>
+    <string name="expanded_optional_headline">How many times</string>
 </resources>

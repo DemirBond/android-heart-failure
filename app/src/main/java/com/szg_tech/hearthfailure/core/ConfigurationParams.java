@@ -15,7 +15,10 @@ public class ConfigurationParams {
     public static final String WEIGHT = "txtWeight";
     public static final String HEART_RATE = "txtHR";
     public static final String SBP = "txtSBP";
+    public static final String SBP_OPTIONAL_LOWER = "txtDurationSBP";
+    public static final String SBP_OPTIONAL_UPPER = "txtNumberSBP";
     public static final String DBP = "txtDBP";
+    public static final String DBP_OPTIONAL = "txtNumberDBP";
     public static final String RESP_RATE = "txtresprate";
     public static final String TEMPARATURE = "txttemp";
     public static final String IS_PAH = "isPAH";
