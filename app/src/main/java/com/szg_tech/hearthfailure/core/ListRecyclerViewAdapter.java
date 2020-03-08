@@ -77,11 +77,12 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
     private SectionDependsOnManager sectionDependsOnManager = new SectionDependsOnManager();
     private String parentTitle;
     private ArrayList<Object> oldValues = new ArrayList<>();
-
-    public ListRecyclerViewAdapter(Activity activity, List<EvaluationItem> evaluationItemsList, ArrayList<Object> oldValues) {
+    private RecyclerView recyclerView;
+    public ListRecyclerViewAdapter(Activity activity, List<EvaluationItem> evaluationItemsList, ArrayList<Object> oldValues, RecyclerView recyclerView) {
         this.activity = activity;
         this.evaluationItemsList = evaluationItemsList;
         this.oldValues = oldValues;
+        this.recyclerView = recyclerView;
     }
 
     @Override
@@ -471,22 +472,22 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                                 snackbar.show();
                             }
                         }
+                        if (!recyclerView.isComputingLayout()) {
+                            NumericalEvaluationItem numericalEvaluationItem = ((NumericalEvaluationItem) evaluationItem);
+                            if (numericalEvaluationItem.getId().equals(SBP)) {
+                                updateNumericalOptionalCell(SBP_OPTIONAL_LOWER);
+                                updateNumericalOptionalCell(SBP_OPTIONAL_UPPER);
+                            }
+                            if (numericalEvaluationItem.getId().equals(DBP)) {
+                                updateNumericalOptionalCell(DBP_OPTIONAL);
+                            }
 
-                        NumericalEvaluationItem numericalEvaluationItem = ((NumericalEvaluationItem) evaluationItem);
-                        if (numericalEvaluationItem.getId().equals(SBP)) {
-                            updateNumericalOptionalCell(SBP_OPTIONAL_LOWER);
-                            updateNumericalOptionalCell(SBP_OPTIONAL_UPPER);
+                            if (numericalEvaluationItem.getId().equals(NA_MEQ_L)) {
+                                updateNumericalOptionalCell(URINE_NA_MEQ_L);
+                                updateNumericalOptionalCell(SERUM_OSMOLALITY);
+                                updateNumericalOptionalCell(URINE_OSMOLALITY);
+                            }
                         }
-                        if (numericalEvaluationItem.getId().equals(DBP)) {
-                            updateNumericalOptionalCell(DBP_OPTIONAL);
-                        }
-
-                        if (numericalEvaluationItem.getId().equals(NA_MEQ_L)) {
-                            updateNumericalOptionalCell(URINE_NA_MEQ_L);
-                            updateNumericalOptionalCell(SERUM_OSMOLALITY);
-                            updateNumericalOptionalCell(URINE_OSMOLALITY);
-                        }
-
                     } else if (evaluationItem.isMandatory() && editText.getText().toString().isEmpty()) {
                         stringEditTextCell.setCorrect(false);
                     }

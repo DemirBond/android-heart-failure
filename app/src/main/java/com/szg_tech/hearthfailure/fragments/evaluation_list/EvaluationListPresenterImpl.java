@@ -68,7 +68,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
 
         evaluationItem = (EvaluationItem) arguments.getSerializable(ConfigurationParams.NEXT_SECTION);
         evaluationItems = evaluationItem.getEvaluationItemList();
-        listRecyclerViewAdapter = new ListRecyclerViewAdapter(activity, evaluationItems, createValuesDump());
+        listRecyclerViewAdapter = new ListRecyclerViewAdapter(activity, evaluationItems, createValuesDump(), recyclerView);
         recyclerView.setAdapter(listRecyclerViewAdapter);
         String actionBarTitle = evaluationItem.getName();
         if (!activity.getResources().getString(R.string.evaluation).equals(actionBarTitle)) {
@@ -257,7 +257,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
         if (activity != null) {
             RecyclerView recyclerView = getView().getRecyclerView();
             if (recyclerView != null) {
-                listRecyclerViewAdapter = new ListRecyclerViewAdapter(getActivity(), evaluationItems, createValuesDump());
+                listRecyclerViewAdapter = new ListRecyclerViewAdapter(getActivity(), evaluationItems, createValuesDump(), recyclerView);
                 getView().getRecyclerView().setAdapter(listRecyclerViewAdapter);
             }
         }
